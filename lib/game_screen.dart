@@ -30,7 +30,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   Random random = Random();
   List<_Star> stars = [];
 
-  // Animation controllers
   late AnimationController scoreController;
   late AnimationController binSquashController;
   late AnimationController backgroundController;
@@ -56,7 +55,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       duration: const Duration(seconds: 20),
     )..repeat();
 
-    // Initialize stars
     for (int i = 0; i < 50; i++) {
       stars.add(_Star(
         x: random.nextDouble(),
@@ -108,11 +106,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   void spawnBall() {
     double x = random.nextDouble() * (screenWidth - 40) + 20;
     List<Color> ballColors = [
-      const Color(0xFFFF6B6B),  // Coral Red
-      const Color(0xFF4ECDC4),  // Turquoise
-      const Color(0xFFFFBE0B),  // Yellow
-      const Color(0xFF7400B8),  // Purple
-      const Color(0xFF80ED99),  // Mint Green
+      const Color(0xFFFF6B6B),
+      const Color(0xFF4ECDC4),
+      const Color(0xFFFFBE0B),
+      const Color(0xFF7400B8),
+      const Color(0xFF80ED99),
     ];
     Color color = ballColors[random.nextInt(ballColors.length)];
     balls.add(Ball(x: x, y: 0, color: color));
@@ -166,7 +164,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       for (var p in particles) {
         p.x += p.dx;
         p.y += p.dy;
-        p.dy += 0.1; // Add gravity effect
+        p.dy += 0.1;
         p.life--;
       }
       particles.removeWhere((p) => p.life <= 0);
@@ -179,7 +177,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       barrierDismissible: false,
       builder: (context) => GameOverScreen(
         score: score,
-        highScore: 0, // This will be handled by the parent widget
+        highScore: 0,
         onRestart: () {
           Navigator.of(context).pop();
           startGame();
@@ -214,7 +212,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         },
         child: Stack(
           children: [
-            // Animated background
             Positioned.fill(
               child: AnimatedBuilder(
                 animation: backgroundController,
@@ -225,9 +222,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Color(0xFF1A1A2E),  // Deep blue-black
-                          Color(0xFF16213E),  // Navy blue
-                          Color(0xFF0F3460),  // Rich blue
+                          Color(0xFF1A1A2E),
+                          Color(0xFF16213E),
+                          Color(0xFF0F3460),
                         ],
                       ),
                     ),
@@ -235,7 +232,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 },
               ),
             ),
-            // Stars
             ...stars.map((star) => Positioned(
               left: star.x * screenWidth,
               top: star.y * screenHeight,
@@ -254,7 +250,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 ),
               ),
             )),
-            // Score and Missed
             Positioned(
               top: 50,
               left: 0,
@@ -321,7 +316,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            // Particles
             ...particles.map((p) => Positioned(
               left: p.x,
               top: p.y,
@@ -349,13 +343,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 ),
               ),
             )),
-            // Balls
             ...balls.map((ball) => Positioned(
               left: ball.x,
               top: ball.y,
               child: _AnimatedBall(ball: ball),
             )),
-            // Bin
             AnimatedBuilder(
               animation: binSquashController,
               builder: (context, child) {
@@ -466,8 +458,8 @@ class _SexyBin extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xFF4ECDC4),  // Turquoise
-            Color(0xFF2BAE9F),  // Darker turquoise
+            Color(0xFF4ECDC4),
+            Color(0xFF2BAE9F),
           ],
         ),
         borderRadius: BorderRadius.circular(20),
@@ -481,7 +473,6 @@ class _SexyBin extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Glossy effect
           Positioned(
             top: 0,
             left: 0,
@@ -503,7 +494,6 @@ class _SexyBin extends StatelessWidget {
               ),
             ),
           ),
-          // Inner shadow
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -541,4 +531,4 @@ class _Star {
   double x, y;
   double size;
   _Star({required this.x, required this.y, required this.size});
-} 
+}

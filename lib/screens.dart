@@ -30,7 +30,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
       duration: const Duration(seconds: 20),
     )..repeat();
 
-    // Initialize stars
     for (int i = 0; i < 50; i++) {
       stars.add(_Star(
         x: random.nextDouble(),
@@ -51,7 +50,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     return Scaffold(
       body: Stack(
         children: [
-          // Background with stars
           Positioned.fill(
             child: Container(
               decoration: const BoxDecoration(
@@ -67,7 +65,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               ),
             ),
           ),
-          // Animated stars
           ...stars.map((star) => Positioned(
             left: star.x * MediaQuery.of(context).size.width,
             top: star.y * MediaQuery.of(context).size.height,
@@ -86,12 +83,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               ),
             ),
           )),
-          // Content
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Title
                 ShaderMask(
                   shaderCallback: (bounds) => const LinearGradient(
                     colors: [Color(0xFF4ECDC4), Color(0xFFFFBE0B)],
@@ -114,14 +109,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   ),
                 ),
                 const SizedBox(height: 50),
-                // Play button
                 _GlowingButton(
                   onPressed: widget.onPlay,
                   text: 'Play',
                   color: const Color(0xFF4ECDC4),
                 ),
                 const SizedBox(height: 20),
-                // High scores button
                 _GlowingButton(
                   onPressed: widget.onHighScores,
                   text: 'High Scores',
@@ -164,7 +157,6 @@ class HighScoreScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              // Header
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Row(
@@ -184,11 +176,10 @@ class HighScoreScreen extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(width: 40), // For symmetry
+                    const SizedBox(width: 40),
                   ],
                 ),
               ),
-              // Scores list
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -197,9 +188,9 @@ class HighScoreScreen extends StatelessWidget {
                     final score = scores[index];
                     final isTop3 = index < 3;
                     final colors = [
-                      const Color(0xFFFFD700), // Gold
-                      const Color(0xFFC0C0C0), // Silver
-                      const Color(0xFFCD7F32), // Bronze
+                      const Color(0xFFFFD700),
+                      const Color(0xFFC0C0C0),
+                      const Color(0xFFCD7F32),
                     ];
 
                     return Container(
