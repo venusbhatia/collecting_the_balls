@@ -134,11 +134,7 @@ These values are optimized for an enjoyable gaming experience!
 
 * ✅ iOS
 * ✅ Android
-* ✅ Web
-* ✅ macOS
-* ✅ Linux
-* ✅ Windows
 
 ---
 
-Enjoy playing and happy coding! 🎮✨
+Enjoy playing and happy gaming! 🎮✨
