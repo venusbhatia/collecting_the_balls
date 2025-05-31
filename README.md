@@ -1,4 +1,4 @@
-# 🎮 Collecting The Ball - Flutter Game
+# 🎮 Collecting The Balls - Flutter Game
 
 A beautiful and engaging ball-catching game built with **Flutter**, featuring smooth animations, particle effects, and modern UI design.
 
@@ -24,6 +24,10 @@ collectingtheball/
 ```
 
 ---
+
+# ✨ Screenshots
+
+<p float="left"> <img src="https://github.com/user-attachments/assets/530a8892-d866-43ad-b0e0-396ebc2c63e7" width="200" /> <img src="https://github.com/user-attachments/assets/31f2ab23-25f6-4b85-b88f-3a3235c4e858" width="200" /> <img src="https://github.com/user-attachments/assets/50bee90c-7020-4495-a5f5-6fba99cfe6e8" width="200" /> <img src="https://github.com/user-attachments/assets/8779ea05-e2dc-455b-acaa-47062bbb8998" width="200" /> <img src="https://github.com/user-attachments/assets/3c454abc-0e49-438b-8bae-9c9e6a13c707" width="200" /> </p>
 
 # ✨ Features
 
